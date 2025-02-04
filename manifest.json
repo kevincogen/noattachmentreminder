@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Email Attachment Checker",
+  "version": "1.0",
+  "description": "Warns users if they mention an attachment but have not attached a file.",
+  "permissions": ["scripting", "activeTab"],
+  "host_permissions": ["https://mail.google.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
